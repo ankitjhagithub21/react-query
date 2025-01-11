@@ -1,4 +1,3 @@
-import React, { useEffect, useState } from 'react'
 import { fetchPosts } from '../api/api'
 import { useQuery } from 'react-query'
 
@@ -7,7 +6,10 @@ const Home = () => {
   const {data,isLoading,isError,error} = useQuery({
     queryKey:["posts"],
     queryFn:fetchPosts,
-    staleTime:10000
+    // cacheTime:1000,
+    staleTime:10000,
+    // refetchInterval:1000,
+    refetchIntervalInBackground:false
   })
 
   if(isLoading) return <p>Loading...</p>
