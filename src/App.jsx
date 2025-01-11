@@ -4,6 +4,7 @@ import MainLayout from './components/layout/MainLayout'
 import About from './pages/About'
 import Home from './pages/Home'
 import {QueryClient, QueryClientProvider} from "react-query"
+import PostDetails from './pages/PostDetails'
 
 const App = () => {
   const queryClient = new QueryClient()
@@ -19,6 +20,10 @@ const App = () => {
         {
           path:"/about",
           element:<About/>
+        },
+        {
+          path:"/posts/:id",
+          element:<PostDetails/>
         }
       ]
     }

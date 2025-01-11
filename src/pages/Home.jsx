@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import { fetchPosts } from '../api/api'
 import { useQuery } from 'react-query'
 
@@ -19,9 +20,10 @@ const Home = () => {
     <div className='home'>
       {
        data?.map((post)=>{
-          return <div key={post.id}>
+          return <div className='post' key={post.id}>
             <h1>{post.title}</h1>
             <p>{post.body}</p>
+            <Link to={`/posts/${post.id}`}>Read More</Link>
           </div>
         })
       }
