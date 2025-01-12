@@ -7,10 +7,9 @@ const PostDetails = () => {
   const { id } = useParams();
 
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["post", id],
+    queryKey: ["post",id],
     queryFn: () => fetchPostById(id),
   });
-  console.log(data);
 
   if (isLoading) return <p>Loading...</p>;
   if (isError) return <p>Error {error.message || "Something went wrong."} </p>;
